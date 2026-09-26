@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A revisable instruction-to-execution interface for multimodal UAV planning.">
+  <title>Multimodal UAV Planning</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div>
+      <p>Multimodal UAV Planning</p>
+      <h1>Modality-Aware Coupling with a Revisable Instruction-to-Execution Interface</h1>
+      <p class="lead">A framework that preserves multimodal operator intent as revisable task structure while connecting instruction understanding to map-feasible UAV planning.</p>
+    </div>
+  </header>
+  <main>
+    <section>
+      <h2>Overview</h2>
+      <p>UAV mission planning often requires text, voice, gesture, and map annotations to be interpreted together. This project develops a structured interface between multimodal understanding, hierarchical task decomposition, and dynamic replanning.</p>
+      <div class="figure">
+        <img src="assets/architecture.jpg" alt="Architecture of multimodal understanding, task decomposition, and dynamic replanning.">
+      </div>
+    </section>
+    <section>
+      <h2>Framework components</h2>
+      <div class="grid">
+        <div class="card"><h3>Modality-Gated Fusion</h3><p>Combines text, voice, gesture, and annotation representations through cross-modal attention and adaptive gating.</p></div>
+        <div class="card"><h3>HSATD</h3><p>Produces an ordered atomic-task sequence with operational transition constraints.</p></div>
+        <div class="card"><h3>AADR</h3><p>Uses structural availability information to condition map-level obstacle clearance and replanning scope.</p></div>
+        <div class="card"><h3>Offline grounding</h3><p>Uses frozen visual grounding to generate and cache predicted coordinates before online replanning.</p></div>
+      </div>
+    </section>
+    <section>
+      <h2>Evidence and scope</h2>
+      <div class="note">Synthetic fusion, visual grounding, and real-data GPS evaluations are distinct protocols. Their results are reported separately and are not interchangeable performance scores.</div>
+      <p>The public release will include only publication-safe code, de-identified summaries, protocol definitions, and reproducibility documentation. It does not provide a safety certification, closed-loop flight validation, or an official reproduction of external methods.</p>
+    </section>
+    <section>
+      <h2>Release roadmap</h2>
+      <ol>
+        <li>Publish reviewed documentation and the project page.</li>
+        <li>Release sanitized code and configuration files.</li>
+        <li>Add de-identified aggregate results and integrity manifests after permissions review.</li>
+      </ol>
+    </section>
+  </main>
+  <footer>Public materials are released subject to applicable licences, data-use restrictions, and author approval.</footer>
+</body>
+</html>

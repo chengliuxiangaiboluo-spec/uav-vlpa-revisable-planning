@@ -1,0 +1,18 @@
+:root { --ink: #142c3a; --accent: #168294; --pale: #eef8f8; --line: #c8e0e2; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, "Segoe UI", Arial, sans-serif; color: var(--ink); line-height: 1.65; background: #fff; }
+header { background: linear-gradient(135deg, #0a5362, #168294); color: white; padding: 4.5rem 1.5rem 4rem; }
+header > div, main, footer { max-width: 1050px; margin: 0 auto; }
+h1 { font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.14; margin: 0 0 1rem; max-width: 900px; }
+h2 { color: #0d6270; margin-top: 0; }
+.lead { font-size: 1.17rem; max-width: 760px; }
+main { padding: 3rem 1.5rem 4rem; }
+section { margin: 2.7rem 0; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); gap: 1rem; }
+.card { padding: 1.25rem; background: var(--pale); border: 1px solid var(--line); border-radius: 12px; }
+.card h3 { margin: 0 0 .45rem; color: #0d6270; }
+.figure { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; background: #fff; }
+.figure img { width: 100%; height: auto; display: block; }
+.note { border-left: 4px solid var(--accent); padding: 1rem 1.25rem; background: #f5fbfb; }
+a { color: #086b7b; }
+footer { border-top: 1px solid var(--line); padding: 1.5rem; font-size: .93rem; color: #46626a; }
