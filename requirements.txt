@@ -1,0 +1,43 @@
+# UAV-VLPA Experiment Framework - Complete Dependencies
+
+# ── Core ──────────────────────────────────────────────────────────────────
+numpy>=1.21.0
+torch>=2.0.0
+Pillow>=9.0.0
+
+# ── Language models & VLM ────────────────────────────────────────────────
+transformers>=4.30.0
+langchain>=0.1.0
+langchain-openai>=0.0.2
+openai>=1.0.0
+
+# ── Parameter-efficient fine-tuning ──────────────────────────────────────
+peft>=0.7.0
+
+# ── HuggingFace datasets ─────────────────────────────────────────────────
+datasets>=2.14.0
+
+# ── Audio I/O & processing ───────────────────────────────────────────────
+soundfile>=0.12.0
+librosa>=0.10.0
+
+# ── Vision ───────────────────────────────────────────────────────────────
+torchvision>=0.19.0
+opencv-python>=4.8.0
+
+# ── Semantic similarity ───────────────────────────────────────────────────
+sentence-transformers>=2.2.0
+
+# ── Path planning ─────────────────────────────────────────────────────────
+python-tsp>=0.3.0
+fastdtw>=0.3.4
+
+# ── Config & utilities ───────────────────────────────────────────────────
+pyyaml>=6.0
+tqdm>=4.65.0
+matplotlib>=3.7.0
+pandas>=2.0.0
+
+# ── Statistical analysis ─────────────────────────────────────────────────
+scipy>=1.10.0
+tabulate>=0.9.0

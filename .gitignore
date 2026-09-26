@@ -9,17 +9,20 @@ __pycache__/
 Weights/
 weights/
 checkpoints/
-models/
 *.pt
 *.pth
 *.ckpt
 *.safetensors
 
 # Restricted or raw research material
-data/
+data/generated/
+data/raw/
+data/UAVD4L/
 realdata/
 raw_data/
 raw_media/
+*.csv
+*.json
 *.mp4
 *.wav
 *.flac

@@ -1,0 +1,35 @@
+# Copy this file outside the Git checkout and fill it only with authorised
+# local paths and checksums. Do not commit the completed manifest.
+release_version: "paper-code-v1"
+python: ">=3.10"
+assets:
+  benchmark_uav_vlpa:
+    required_for: "Strict OSM protocol construction and scoring"
+    expected_path: "/absolute/path/to/benchmark-UAV-VLPA-nano-30"
+    checksum_manifest: "provide externally"
+    public_in_this_repository: false
+  v2_split_manifests:
+    required_for: "Five-seed training and held-out OOD evaluation"
+    expected_path: "/absolute/path/to/run_root/splits"
+    checksum_manifest: "provide externally"
+    public_in_this_repository: false
+  pretrained_model_cache:
+    required_for: "Offline text, audio, vision, and Molmo components"
+    expected_path: "/absolute/path/to/Weights"
+    checksum_manifest: "provide externally"
+    public_in_this_repository: false
+  trained_checkpoints:
+    required_for: "Exact evaluation of a previously trained seed"
+    expected_path: "/absolute/path/to/run_root/models"
+    checksum_manifest: "provide externally"
+    public_in_this_repository: false
+  controlled_realdata:
+    required_for: "Fixed-input GPS descriptive check only"
+    expected_path: "authorised local storage"
+    checksum_manifest: "provide externally"
+    public_in_this_repository: false
+
+reporting_rules:
+  - "Never pool results across synthetic, OSM-grounding, and GPS protocols."
+  - "Treat a frozen Molmo baseline as a single deterministic run, not five training seeds."
+  - "Use reference coordinates only on evaluator-side copies for scoring."
