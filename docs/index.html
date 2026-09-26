@@ -3,49 +3,122 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A revisable instruction-to-execution interface for multimodal UAV planning.">
-  <title>Multimodal UAV Planning</title>
+  <meta name="description" content="Code and reproducibility materials for multimodal UAV mission planning.">
+  <title>UAV-VLPA | Multimodal UAV Planning</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%230b6f79' d='M4 16h24v3H4zM13 5h6v21h-6z'/%3E%3Ccircle fill='%23f5c451' cx='16' cy='16' r='4'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <div>
-      <p>Multimodal UAV Planning</p>
-      <h1>Modality-Aware Coupling with a Revisable Instruction-to-Execution Interface</h1>
-      <p class="lead">A framework that preserves multimodal operator intent as revisable task structure while connecting instruction understanding to map-feasible UAV planning.</p>
-    </div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="UAV-VLPA home"><span class="brand-mark">U</span> UAV-VLPA</a>
+    <nav aria-label="Main navigation">
+      <a href="#framework">Framework</a>
+      <a href="#protocols">Protocols</a>
+      <a href="#reproduce">Reproduce</a>
+      <a class="nav-code" href="https://github.com/chengliuxiangaiboluo-spec/uav-vlpa-revisable-planning">Code ↗</a>
+    </nav>
   </header>
-  <main>
-    <section>
-      <h2>Overview</h2>
-      <p>UAV mission planning often requires text, voice, gesture, and map annotations to be interpreted together. This project develops a structured interface between multimodal understanding, hierarchical task decomposition, and dynamic replanning.</p>
-      <div class="figure">
-        <img src="assets/architecture.jpg" alt="Architecture of multimodal understanding, task decomposition, and dynamic replanning.">
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">MULTIMODAL UAV MISSION PLANNING</p>
+        <h1>A revisable interface from instruction to execution.</h1>
+        <p class="hero-lead">UAV-VLPA links heterogeneous operator inputs to hierarchical task structure and map-feasible planning, while retaining a clear boundary between offline visual grounding and online replanning.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#framework">Explore the framework <span>↓</span></a>
+          <a class="button button-secondary" href="https://github.com/chengliuxiangaiboluo-spec/uav-vlpa-revisable-planning">View audited code <span>↗</span></a>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="Research scope">
+        <p class="panel-label">RESEARCH SCOPE</p>
+        <div class="scope-row"><span class="scope-index">01</span><p>Text, voice, gesture, and map annotation inputs.</p></div>
+        <div class="scope-row"><span class="scope-index">02</span><p>Hierarchical task decomposition with constrained transitions.</p></div>
+        <div class="scope-row"><span class="scope-index">03</span><p>Map-level planning conditioned on structural availability.</p></div>
+      </aside>
+    </section>
+
+    <section id="framework" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">FRAMEWORK</p>
+        <h2>Three layers, one revisable interface.</h2>
+        <p>The interface carries the fused representation to task decomposition and the structural-availability signal to planning. Cached visual grounding is prepared offline rather than represented as zero-cost online inference.</p>
+      </div>
+      <div class="architecture-layout">
+        <figure class="architecture-card">
+          <img src="assets/architecture.jpg" alt="Architecture showing online multimodal understanding, task decomposition and replanning, and offline Molmo grounding.">
+          <figcaption>System overview. Dashed links denote cached offline coordinates; solid links denote online computational flow.</figcaption>
+        </figure>
+        <div class="layer-stack">
+          <article class="layer-card">
+            <span class="layer-number">01</span>
+            <h3>Online multimodal understanding</h3>
+            <p>Modality-gated cross-modal attention fuses operator inputs into a shared representation.</p>
+          </article>
+          <article class="layer-card">
+            <span class="layer-number">02</span>
+            <h3>Task decomposition and replanning</h3>
+            <p>HSATD produces ordered atomic tasks; AADR uses the structural signal to condition obstacle avoidance and replanning.</p>
+          </article>
+          <article class="layer-card">
+            <span class="layer-number">03</span>
+            <h3>Offline preparation</h3>
+            <p>Frozen Molmo grounding predicts map coordinates before execution; cached predictions are distinct from online planning latency.</p>
+          </article>
+        </div>
       </div>
     </section>
-    <section>
-      <h2>Framework components</h2>
-      <div class="grid">
-        <div class="card"><h3>Modality-Gated Fusion</h3><p>Combines text, voice, gesture, and annotation representations through cross-modal attention and adaptive gating.</p></div>
-        <div class="card"><h3>HSATD</h3><p>Produces an ordered atomic-task sequence with operational transition constraints.</p></div>
-        <div class="card"><h3>AADR</h3><p>Uses structural availability information to condition map-level obstacle clearance and replanning scope.</p></div>
-        <div class="card"><h3>Offline grounding</h3><p>Uses frozen visual grounding to generate and cache predicted coordinates before online replanning.</p></div>
+
+    <section id="protocols" class="section protocol-section">
+      <div class="section-heading compact">
+        <p class="eyebrow">EVIDENCE BOUNDARIES</p>
+        <h2>Choose a protocol to inspect its scope.</h2>
+      </div>
+      <div class="protocol-shell">
+        <div class="protocol-tabs" role="tablist" aria-label="Evaluation protocols">
+          <button class="protocol-tab active" role="tab" aria-selected="true" aria-controls="protocol-panel" data-protocol="synthetic">Synthetic multimodal</button>
+          <button class="protocol-tab" role="tab" aria-selected="false" aria-controls="protocol-panel" data-protocol="grounding">OSM grounding</button>
+          <button class="protocol-tab" role="tab" aria-selected="false" aria-controls="protocol-panel" data-protocol="gps">Fixed-input GPS</button>
+        </div>
+        <article id="protocol-panel" class="protocol-panel" aria-live="polite">
+          <p class="protocol-kicker">PROTOCOL 01</p>
+          <h3>Synthetic multimodal evaluation</h3>
+          <p>Evaluates fusion, task decomposition, ablations, robustness, and controlled comparisons under the synthetic benchmark protocol.</p>
+          <ul>
+            <li>Independent learned-method training seeds are retained.</li>
+            <li>Results are not pooled with visual-grounding or GPS results.</li>
+          </ul>
+        </article>
       </div>
     </section>
-    <section>
-      <h2>Evidence and scope</h2>
-      <div class="note">Synthetic fusion, visual grounding, and real-data GPS evaluations are distinct protocols. Their results are reported separately and are not interchangeable performance scores.</div>
-      <p>The public release will include only publication-safe code, de-identified summaries, protocol definitions, and reproducibility documentation. It does not provide a safety certification, closed-loop flight validation, or an official reproduction of external methods.</p>
+
+    <section id="reproduce" class="section reproduce-section">
+      <div class="reproduce-copy">
+        <p class="eyebrow">REPRODUCIBILITY</p>
+        <h2>Code is public. Controlled assets remain controlled.</h2>
+        <p>The release includes source modules, strict experiment runners, aggregation utilities, and a portable integrity check. Exact numerical re-evaluation requires authorized benchmark data, split manifests, model caches, and seed checkpoints.</p>
+        <a class="text-link" href="https://github.com/chengliuxiangaiboluo-spec/uav-vlpa-revisable-planning/blob/main/reproducibility/ASSET_MANIFEST.template.yaml">Read the asset manifest <span>→</span></a>
+      </div>
+      <div class="command-card">
+        <div class="terminal-bar"><span></span><span></span><span></span><p>release check</p></div>
+        <pre><code>git clone &lt;repository&gt;
+cd uav-vlpa-revisable-planning
+python -m pip install -r requirements.txt
+python scripts/verify_release.py</code></pre>
+        <p class="command-note">The integrity check validates released source and guards against protected artefacts. It does not substitute controlled assets.</p>
+      </div>
     </section>
-    <section>
-      <h2>Release roadmap</h2>
-      <ol>
-        <li>Publish reviewed documentation and the project page.</li>
-        <li>Release sanitized code and configuration files.</li>
-        <li>Add de-identified aggregate results and integrity manifests after permissions review.</li>
-      </ol>
+
+    <section class="boundary-note">
+      <span class="boundary-icon">!</span>
+      <p><strong>Interpretation note.</strong> This project does not provide a safety certification, a closed-loop flight validation claim, or an official reproduction of external methods. The frozen UAV-VLPA* reference is a single-run local adaptation, not a five-seed training statistic.</p>
     </section>
   </main>
-  <footer>Public materials are released subject to applicable licences, data-use restrictions, and author approval.</footer>
+
+  <footer>
+    <p>UAV-VLPA · Public code and reproducibility materials</p>
+    <div><a href="https://github.com/chengliuxiangaiboluo-spec/uav-vlpa-revisable-planning">GitHub</a><a href="#top">Back to top ↑</a></div>
+  </footer>
+  <script src="app.js"></script>
 </body>
 </html>
