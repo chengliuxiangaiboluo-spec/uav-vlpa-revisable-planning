@@ -1,1 +1,41 @@
+# Local environments and secrets
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
 
+# Model artefacts and checkpoints
+Weights/
+weights/
+checkpoints/
+models/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Restricted or raw research material
+data/
+realdata/
+raw_data/
+raw_media/
+*.mp4
+*.wav
+*.flac
+
+# Cluster outputs and private machine state
+logs/
+slurm*.out
+slurm*.err
+*.log
+.qoder/
+
+# Generated build files
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.pdf
