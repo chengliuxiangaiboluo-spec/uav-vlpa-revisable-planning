@@ -1,8 +1,8 @@
 """
 知识整合器模块。
 
-本模块实现基于大语言模型（LLM）的常识推理，
-用于丰富指令内容、解决语义歧义和提升任务规划质量。
+本模块实现可选的基于大语言模型（LLM）的常识推理，
+用于研究性扩展；论文报告的协议不启用该组件。
 
 核心功能:
     1. 指令丰富：将隐含约束显式化
@@ -10,7 +10,7 @@
     3. 上下文感知：结合卫星图像上下文进行推理
 
 技术特点:
-    - 支持多种LLM后端（默认gpt-4o）
+    - 支持可选的 LLM 后端（默认关闭）
     - 自动API密钥管理（环境变量或参数）
     - 优雅降级：LLM不可用时返回原始输入
     - 安全设计：温度设置为0，确保确定性输出
@@ -42,16 +42,24 @@ class KnowledgeIntegrator:
         - api_key: API密钥
     """
 
-    def __init__(self, llm_model: str = "gpt-4o", api_key: Optional[str] = None):
+    def __init__(
+        self,
+        llm_model: str = "gpt-4o",
+        api_key: Optional[str] = None,
+        allow_external_llm: bool = False,
+    ):
         """
         初始化知识整合器。
 
         Args:
-            llm_model: 大语言模型名称，默认为"gpt-4o"
+            llm_model: 大语言模型名称；仅在显式启用外部服务时使用
             api_key: API密钥，如果未提供则从环境变量获取
+            allow_external_llm: 是否允许调用外部 LLM。默认为 False；
+                论文报告的协议不使用该可选组件。
         """
         self.llm_model = llm_model
         self.api_key = api_key or os.getenv("OPENAI_API_KEY", "")
+        self.allow_external_llm = allow_external_llm
         self._llm = None
 
     def _load_llm(self):
@@ -67,6 +75,10 @@ class KnowledgeIntegrator:
             3. 加载失败时启用后备模式
         """
         if self._llm is not None:
+            return
+        if not self.allow_external_llm:
+            logger.info("External LLM enrichment is disabled for the paper-consistent path.")
+            self._llm = "fallback"
             return
         try:
             from langchain_openai import ChatOpenAI

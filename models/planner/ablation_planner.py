@@ -663,14 +663,16 @@ class AblationPlanner:
         B11 消融: 以启发式坐标提取替代 Molmo VLM 定位。
 
         设计原理:
-            Molmo VLM (LoRA 微调) 从多模态指令中精确提取目标坐标，
-            经训练后定位误差 < 1 像素。去掉 VLM grounding 后，
+            Frozen Molmo grounding 从地图图像和目标导向提示中预测目标坐标。
+            本文报告的协议不使用 LoRA 微调，也不将该近似作为已验证的
+            亚像素定位主张。去掉 VLM grounding 后，
             系统退化为基于文本解析的启发式坐标估计:
               1. 从指令文本中匹配目标名称关键词
               2. 对匹配到的目标使用场景先验坐标（已知目标列表）
               3. 对未匹配到的目标使用图像中心 + 大噪声随机偏移
 
-            噪声模型参考 VLM grounding 文献中启发式方法的典型误差:
+            噪声模型用于受控消融，而不是对外部 VLM grounding 文献的
+            定量复现:
               - 简单场景: σ ≈ 3% (目标少、指令清晰)
               - 中等场景: σ ≈ 5% (目标数中等、部分遮挡)
               - 复杂场景: σ ≈ 8% (目标密集、指令歧义)
@@ -679,7 +681,7 @@ class AblationPlanner:
             但幅度远小于 VLM grounding。
 
         参考文献:
-            - Driess et al., 2023 (PaLM-E): VLM grounding < 1px error
+            - 本消融的启发式替代仅用于协议内比较。
             - Yin et al., 2025 (UniGoal): heuristic parsing ~5-10% error
         """
         # 复杂度相关的定位噪声标准差 (百分比坐标)

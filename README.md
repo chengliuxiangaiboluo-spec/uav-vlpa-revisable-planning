@@ -8,6 +8,10 @@ This is a **code release**, not a redistribution of data, model weights, checkpo
 
 The paper reports distinct synthetic, OSM-grounding, and fixed-input GPS protocols. Their results must not be pooled. The frozen UAV-VLPA* Molmo adaptation is evaluated as a deterministic single-run reference, whereas learned methods use five independently trained seeds.
 
+## Paper-consistent execution path
+
+The reported experiments use frozen 4-bit Molmo-7B-O inference for offline map grounding. They do **not** fine-tune Molmo with LoRA or call a hosted LLM during an evaluation run. The default code path therefore disables external LLM enrichment. The retained LoRA prototype is isolated in [`experimental_not_used_in_paper/`](experimental_not_used_in_paper/) and is not part of any result reported in the manuscript.
+
 ## Quick start
 
 ```bash
@@ -56,11 +60,13 @@ The final command compiles every shipped Python module and rejects accidental ho
 - `submission_experiments_20260910/`: the strict experiment runners, aggregation, and preflight code used for the paper; and
 - `scripts/verify_release.py`: a portable public-release integrity check.
 
+The default [`requirements.txt`](requirements.txt) lists the dependencies for the paper-consistent execution path. Optional packages for retained, non-paper experimental modules are listed separately in [`experimental_not_used_in_paper/requirements-experimental.txt`](experimental_not_used_in_paper/requirements-experimental.txt).
+
 Host-specific paths have been replaced by the `UAV_VLPA_PROJECT_ROOT` and `UAV_VLPA_WEIGHTS_DIR` environment variables.
 
 ## Citation and licence
 
-Citation metadata and a reuse licence will be added after author approval and submission status are finalized. Until then, this repository is provided for inspection and reproducibility assessment; no additional reuse permission is granted by this notice.
+Until the associated manuscript receives its final bibliographic record, cite this repository by its stable URL and the release tag recorded for the submitted version. A `CITATION.cff` file and a reuse licence will be added only after all authors approve the legal and bibliographic metadata. Until then, this repository is provided for inspection and reproducibility assessment; no additional reuse permission is granted by this notice.
 
 ## Security and data policy
 

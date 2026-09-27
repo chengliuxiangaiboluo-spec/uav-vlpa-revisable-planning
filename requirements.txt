@@ -1,4 +1,4 @@
-# UAV-VLPA Experiment Framework - Complete Dependencies
+# UAV-VLPA paper-consistent execution dependencies
 
 # ── Core ──────────────────────────────────────────────────────────────────
 numpy>=1.21.0
@@ -7,12 +7,6 @@ Pillow>=9.0.0
 
 # ── Language models & VLM ────────────────────────────────────────────────
 transformers>=4.30.0
-langchain>=0.1.0
-langchain-openai>=0.0.2
-openai>=1.0.0
-
-# ── Parameter-efficient fine-tuning ──────────────────────────────────────
-peft>=0.7.0
 
 # ── HuggingFace datasets ─────────────────────────────────────────────────
 datasets>=2.14.0

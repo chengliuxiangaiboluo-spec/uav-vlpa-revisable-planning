@@ -1,8 +1,12 @@
 """
+EXPERIMENTAL ONLY -- NOT USED IN THE ASSOCIATED PAPER.
+
 VLM fine-tuner using LoRA (PEFT).
 
 Fine-tunes the Molmo-7B-O vision-language model on the multimodal
-scenario dataset to improve coordinate extraction from instructions.
+scenario dataset to improve coordinate extraction from instructions. The
+reported experiments instead use frozen 4-bit Molmo-7B-O inference and do not
+invoke this prototype.
 """
 
 import os
