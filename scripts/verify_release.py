@@ -19,7 +19,12 @@ FORBIDDEN_TEXT = (
     re.compile(r"scx7f09", re.I),
     re.compile(r"[A-Z]:\\Users\\", re.I),
 )
-FORBIDDEN_SUFFIXES = {".pt", ".pth", ".ckpt", ".safetensors", ".wav", ".flac", ".mp4"}
+FORBIDDEN_SUFFIXES = {
+    ".pt", ".pth", ".ckpt", ".safetensors",
+    ".wav", ".flac", ".mp4",
+    ".csv", ".json", ".jsonl", ".zip", ".tar", ".gz",
+    ".npy", ".npz", ".h5", ".hdf5", ".parquet", ".geojson", ".gpx",
+}
 
 
 def main() -> None:

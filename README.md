@@ -18,7 +18,10 @@ The reported experiments use frozen 4-bit Molmo-7B-O inference for offline map g
 git clone https://github.com/chengliuxiangaiboluo-spec/uav-vlpa-revisable-planning.git
 cd uav-vlpa-revisable-planning
 python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\\Scripts\\activate
+    # macOS/Linux:
+    source .venv/bin/activate
+    # Windows PowerShell:
+    .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 python scripts/verify_release.py
@@ -66,7 +69,7 @@ Host-specific paths have been replaced by the `UAV_VLPA_PROJECT_ROOT` and `UAV_V
 
 ## Citation and licence
 
-Until the associated manuscript receives its final bibliographic record, cite this repository by its stable URL and the release tag recorded for the submitted version. A `CITATION.cff` file and a reuse licence will be added only after all authors approve the legal and bibliographic metadata. Until then, this repository is provided for inspection and reproducibility assessment; no additional reuse permission is granted by this notice.
+Use `CITATION.cff` to cite the associated manuscript and this repository. Until the associated manuscript receives its final bibliographic record, cite the stable repository URL and the commit SHA or release tag used for the submission. The detailed execution boundary and protocol-to-script map are in `reproducibility/REPRODUCIBILITY.md`. A reuse licence will be added only after all authors and the institution approve its terms. Until then, this repository is provided for inspection and reproducibility assessment; no additional reuse permission is granted by this notice.
 
 ## Security and data policy
 

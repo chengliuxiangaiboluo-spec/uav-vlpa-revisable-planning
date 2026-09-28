@@ -23,6 +23,17 @@ raw_data/
 raw_media/
 *.csv
 *.json
+*.jsonl
+*.zip
+*.tar
+*.gz
+*.npy
+*.npz
+*.h5
+*.hdf5
+*.parquet
+*.geojson
+*.gpx
 *.mp4
 *.wav
 *.flac

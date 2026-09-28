@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the associated manuscript and this repository."
+title: "Modality-Aware Coupling with a Revisable Instruction-to-Execution Interface for Multimodal UAV Planning"
+type: software
+authors:
+  - family-names: Zheng
+    given-names: Haotian
+  - family-names: Su
+    given-names: Jiahao
+  - family-names: Zhang
+    given-names: Yangming
+  - family-names: Duan
+    given-names: Jie
+repository-code: "https://github.com/chengliuxiangaiboluo-spec/uav-vlpa-revisable-planning"
+abstract: "Public audit-oriented code and reproducibility materials for modality-aware multimodal UAV planning."
+keywords:
+  - unmanned aerial vehicles
+  - multimodal planning
+  - task decomposition
+  - path planning
